@@ -1,22 +1,32 @@
+import { v4 as uuidV4 } from "uuid";
 class Car {
-    
-    id?: string;
+  id?: string;
 
-    name: string;
+  name: string;
 
-    description: string;
+  description: string;
 
-    daily_rate: number;
+  daily_rate: number;
 
-    license_plate: string;
+  available: boolean;
 
-    fine_amount: number;
+  license_plate: string;
 
-    brand: string;
+  fine_amount: number;
 
-    category_id: string;
+  brand: string;
 
-    created_at: Date;
+  category_id: string;
+
+  created_at: Date;
+
+  constructor() {
+    if (!this.id) {
+      this.id = uuidV4();
+      this.available = true;
+      this.created_at = new Date();
+    }
+  }
 }
 
 export default Car;
